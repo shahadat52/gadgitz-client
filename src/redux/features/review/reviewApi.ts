@@ -20,7 +20,6 @@ const reviewApi = baseApi.injectEndpoints({
                 if (query === 6) {
                     params.append('limit', '6')
                 }
-                console.log(params.toString());
                 return {
                     url: `/reviews/?${params.toString()}`,
                     method: 'GET',

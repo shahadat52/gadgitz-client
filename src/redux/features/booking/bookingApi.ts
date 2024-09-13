@@ -34,7 +34,6 @@ const bookingApi = baseApi.injectEndpoints({
         }),
         paymentIntend: builder.mutation({
             query: (payload) => {
-                console.log((payload));
                 return {
                     url: '/payment/init',
                     method: 'POST',

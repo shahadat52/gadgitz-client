@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+
+.carouselImage{
+  height: 400px  !important; 
+}
 /* :root {
   --background: #ffffff;
   --foreground: #171717;

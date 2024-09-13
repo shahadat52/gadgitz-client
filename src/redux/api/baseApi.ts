@@ -4,12 +4,10 @@ import { RootState } from "../store";
 export const baseApi = createApi({
     reducerPath: 'baseApi',
     baseQuery: fetchBaseQuery({
-        // https://car-wash-server-pink.vercel.app/api
         baseUrl: `${process.env.NEXT_PUBLIC_API_URL}`,
         prepareHeaders: (headers, { getState }) => {
             const token = (getState() as RootState).auth.token;
 
-            // If we have a token set in state, let's assume that we should be passing it.
             if (token) {
                 headers.set('authorization', `Bearer ${token}`)
             }

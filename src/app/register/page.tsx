@@ -15,7 +15,6 @@ const RegisterPage = () => {
     const router = useRouter()
 
     const handleForm = async (data: FieldValues) => {
-        console.log(data);
         setLoading(true)
         const toastId = toast.loading('User creating', { duration: 2000 })
         try {
@@ -28,7 +27,6 @@ const RegisterPage = () => {
                 toast.error(`Operation Failed`, { id: toastId, duration: 1000 })
             }
         } catch (error: any) {
-            console.log(error);
             toast.error(`${error.data.message}`, { id: toastId, duration: 1000 })
             setLoading(false)
         }

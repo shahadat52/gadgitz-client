@@ -15,11 +15,11 @@ const FlashSell = ({ product }: { product: TProduct }) => {
                             className='rounded '
                             width={300}
                             height={100}
-                            src="https://img.freepik.com/free-photo/still-life-wireless-cyberpunk-headphones_23-2151072201.jpg?t=st=1725989191~exp=1725992791~hmac=eda2f67e6f9ed4a9676459c1e0ccf6d9a49dca835a49df2e198a735527972d73&w=360"
-                            alt="Shoes" />
+                            src={product?.image}
+                            alt="mobile" />
                     </figure>
                     <div>
-                        <h3>Shoe name</h3>
+                        <h3>{product?.name}</h3>
                         <p>Price</p>
 
                     </div>

@@ -1,32 +1,26 @@
 import React from 'react';
 import { FaAngleLeft } from "react-icons/fa6";
 import { FaAngleRight } from "react-icons/fa6";
-
-import CarouselCard from './CarouselCard';
 import { TProduct } from '@/types/TProduct';
-import FlashSell from './FlashSell';
+import ProductCard from '../product/ProductCard';
+import CarouselCard from './CarouselCard';
 
-const Header = () => {
-    const productsData: TProduct[] = [
-        { id: 1, name: 'Product 1', price: '$10', image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS4QaRqKWxfrGdQ9r5U5mWg-RWItNxzmphX-Q&s' },
-        { id: 2, name: 'Product 2', price: '$20', image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS4QaRqKWxfrGdQ9r5U5mWg-RWItNxzmphX-Q&s' },
-        { id: 3, name: 'Product 3', price: '$30', image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS4QaRqKWxfrGdQ9r5U5mWg-RWItNxzmphX-Q&s' },
-        { id: 4, name: 'Product 4', price: '$40', image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS4QaRqKWxfrGdQ9r5U5mWg-RWItNxzmphX-Q&s' },
-        { id: 5, name: 'Product 5', price: '$50', image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS4QaRqKWxfrGdQ9r5U5mWg-RWItNxzmphX-Q&s' },
-        { id: 6, name: 'Product 6', price: '$60', image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS4QaRqKWxfrGdQ9r5U5mWg-RWItNxzmphX-Q&s' },
-    ];
+const Header = async () => {
+    const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/services`)
+    const data = await res.json()
+    const productsData: TProduct[] = data?.data
     return (
         <div className='bg-gray-100  py-5 w-full h-screen'>
             <section className='text-center'>
                 <h1 className='text-center text-4xl font-bold pt-10'>Experience the Power of Modern Innovation! <br /> Get the Best Electronics, Only a Click Away!</h1>
-                <p className='my-10'>Lorem ipsum dolor sit amet, consectetur adipisicing elit. <br /> Velit omnis cupiditate alias harum illo quia laudantium nemo laborum eos vitae..</p>
+                <p className='my-10 text-gray-400'><i>Lorem ipsum dolor sit amet, consectetur adipisicing elit. <br /> Velit omnis cupiditate alias harum illo quia laudantium nemo laborum eos vitae..</i></p>
             </section>
-            <div className='flex  items-center mx-20  mb-10'>
+            <div className='md:flex  items-center mx-20  mb-10 hidden '>
                 <p className='text-black text-4xl'><FaAngleLeft /></p>
-                <div className=' grid grid-cols-3 w-full'>
+                <div className=' grid grid-cols-3 md:hid gap-4 mx-auto'>
 
                     {
-                        productsData.slice(0, 3).map((product: TProduct) => <CarouselCard key={product.id} product={product} />)
+                        productsData?.slice(0, 3)?.map((product: TProduct) => <CarouselCard key={product._id} product={product} />)
                     }
 
                 </div>
@@ -39,9 +33,9 @@ const Header = () => {
                     <button className='rounded-3xl p-1 w-40 text-white bg-black'>See All</button>
                 </div>
 
-                <div className='grid grid-cols-4 w-full'>
+                <div className='grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 w-full gap-5'>
                     {
-                        productsData.slice(0, 4).map((product: TProduct) => <FlashSell key={product.id} product={product} />)
+                        productsData?.map((product: TProduct) => <ProductCard key={product._id} product={product} />)
                     }
                 </div>
             </div>

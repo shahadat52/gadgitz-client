@@ -10,7 +10,6 @@ export const bookingSlice = createSlice({
     initialState,
     reducers: {
         setSlot: (state, action) => {
-            console.log(action);
             state.slot = action.payload;
         },
     },

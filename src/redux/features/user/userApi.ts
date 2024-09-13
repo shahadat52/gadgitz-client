@@ -13,7 +13,6 @@ const userApi = baseApi.injectEndpoints({
 
         getUserById: builder.query({
             query: (id) => {
-                console.log(id);
                 return {
                     url: `/users/${id}`,
                     method: 'GET',
@@ -32,7 +31,6 @@ const userApi = baseApi.injectEndpoints({
         }),
         updateProfile: builder.mutation({
             query: (data) => {
-                console.log(data);
                 const id = data?.id;
                 const userData = data?.user
                 return {

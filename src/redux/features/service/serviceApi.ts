@@ -27,7 +27,6 @@ const serviceApi = baseApi.injectEndpoints({
         }),
         addService: builder.mutation({
             query: (data) => {
-                console.log(data);
                 return {
                     url: '/services',
                     method: 'POST',
@@ -38,7 +37,6 @@ const serviceApi = baseApi.injectEndpoints({
         }),
         deleteService: builder.mutation({
             query: (id) => {
-                console.log(id);
                 return {
                     url: `/services/${id}`,
                     method: 'DELETE',
