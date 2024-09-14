@@ -5,7 +5,7 @@ const serviceApi = baseApi.injectEndpoints({
         getAllServices: builder.query({
             query: (query) => {
                 const params = new URLSearchParams();
-
+                console.log(query);
                 if (query === 6) {
                     params.append('limit', '6')
                 }

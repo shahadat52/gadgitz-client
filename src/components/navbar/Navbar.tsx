@@ -1,8 +1,8 @@
 
 import Image from 'next/image';
 import Link from 'next/link';
-import NavLinksEnd from './navbar/NavLinksEnd';
-import NavLinks from './navbar/NavLinks';
+import NavLinksEnd from './NavLinksEnd';
+import NavLinks from './NavLinks';
 
 const Navbar = () => {
     return (
