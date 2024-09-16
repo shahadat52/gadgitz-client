@@ -6,7 +6,7 @@ export const baseApi = createApi({
     baseQuery: fetchBaseQuery({
         baseUrl: `${process.env.NEXT_PUBLIC_API_URL}`,
         prepareHeaders: (headers, { getState }) => {
-            const token = (getState() as RootState).auth.token;
+            const token = (getState() as RootState).auth.auth.token;
 
             if (token) {
                 headers.set('authorization', `Bearer ${token}`)

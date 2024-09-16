@@ -1,3 +1,4 @@
+'use client'
 import { useAppSelector } from '@/redux/hooks';
 import { TProduct } from '@/types/TProduct';
 import React, { useEffect, useState } from 'react';
