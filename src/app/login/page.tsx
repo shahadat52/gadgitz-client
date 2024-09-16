@@ -16,7 +16,7 @@ const LoginPage = () => {
     const [loading, setLoading] = useState(false);
     const { register, reset, handleSubmit, formState: { errors } } = useForm();
     const router = useRouter();
-    const { token } = useAppSelector(state => state.auth)
+    const { token } = useAppSelector(state => state.auth.auth)
 
     const dispatch = useAppDispatch()
 

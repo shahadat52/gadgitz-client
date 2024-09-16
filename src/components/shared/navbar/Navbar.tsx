@@ -1,8 +1,8 @@
 
-import Image from 'next/image';
 import Link from 'next/link';
 import NavLinksEnd from './NavLinksEnd';
 import NavLinks from './NavLinks';
+import CartIcon from './CartIcon';
 
 const Navbar = () => {
     return (
@@ -28,16 +28,8 @@ const Navbar = () => {
                 <Link href='/' className="btn btn-ghost text-xl">Gadgitz</Link>
             </div>
             <NavLinksEnd />
-            <div className="navbar-end">
-                <div className='avatar'>
-                    <Image
-                        className='rounded-full'
-                        src='https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp'
-                        width={20}
-                        height={20}
-                        alt='profile'
-                    />
-                </div>
+            <div className="navbar-end mr-10">
+                <CartIcon />
             </div>
         </div>
     );

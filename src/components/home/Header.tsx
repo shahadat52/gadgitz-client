@@ -2,7 +2,6 @@ import React from 'react';
 import { FaAngleLeft } from "react-icons/fa6";
 import { FaAngleRight } from "react-icons/fa6";
 import { TProduct } from '@/types/TProduct';
-import ProductCard from '../product/ProductCard';
 import CarouselCard from './CarouselCard';
 
 const Header = async () => {
@@ -10,7 +9,7 @@ const Header = async () => {
     const data = await res.json()
     const productsData: TProduct[] = data?.data
     return (
-        <div className='bg-gray-100  py-5 w-full h-screen'>
+        <div className='bg-gray-100  py-5 w-full '>
             <section className='text-center'>
                 <h1 className='text-center text-4xl font-bold pt-10'>Experience the Power of Modern Innovation! <br /> Get the Best Electronics, Only a Click Away!</h1>
                 <p className='my-10 text-gray-400'><i>Lorem ipsum dolor sit amet, consectetur adipisicing elit. <br /> Velit omnis cupiditate alias harum illo quia laudantium nemo laborum eos vitae..</i></p>
@@ -25,20 +24,11 @@ const Header = async () => {
 
                 </div>
                 <p className='text-black text-4xl'><FaAngleRight /></p>
+
             </div>
 
-            <div className='mt-40'>
-                <div className='flex justify-between mx-20 mb-5'>
-                    <h1>Flash sell</h1>
-                    <button className='rounded-3xl p-1 w-40 text-white bg-black'>See All</button>
-                </div>
 
-                <div className='grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 w-full gap-5'>
-                    {
-                        productsData?.map((product: TProduct) => <ProductCard key={product._id} product={product} />)
-                    }
-                </div>
-            </div>
+
         </div>
     );
 };

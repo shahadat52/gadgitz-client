@@ -5,8 +5,9 @@ import { useAppDispatch, useAppSelector } from '@/redux/hooks';
 import Link from 'next/link';
 import React, { useEffect, useState } from 'react';
 
+
 const NavLinksEnd = () => {
-    const { token, user } = useAppSelector((state) => state.auth);
+    const { token, user } = useAppSelector((state) => state.auth.auth);
     const [isMounted, setIsMounted] = useState(false);
     const dispatch = useAppDispatch()
 
@@ -26,7 +27,7 @@ const NavLinksEnd = () => {
                     isMounted && thisUser?.role && <Link href={`/dashboard/${thisUser?.role}`}>Dashboard</Link>
                 }
                 {isMounted && token ? (
-                    <p onClick={handleLogOut}>Log Out</p>
+                    <p onClick={handleLogOut}>Logout</p>
                 ) : (
                     <Link href='/login'>Login</Link>
                 )}

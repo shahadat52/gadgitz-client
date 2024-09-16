@@ -8,4 +8,5 @@ export type TProduct = {
     brand: string;
     features: string;
     isDeleted?: boolean;
+    quantity?: number
 };

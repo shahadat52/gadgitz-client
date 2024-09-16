@@ -1,6 +1,7 @@
 import { TProduct } from '@/types/TProduct';
 import Image from 'next/image';
 import React from 'react';
+import AddToCartButton from '../AddToCartButton';
 
 export const generateStaticParams = async () => {
     const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/services`);
@@ -47,8 +48,9 @@ const ProductDetails = ({ product }: { product: TProduct }) => {
                 <div>
                     <h2>{product?.name}</h2>
                     <p>{product?.description}</p>
-                    <p>{product?.price}</p>
+                    <p>Price: {product?.price}</p>
                 </div>
+                <AddToCartButton product={product} />
             </div>
         </div>
     );

@@ -24,8 +24,7 @@ const ProductsPage = () => {
     const products = data?.data
     console.log(data);
     return (
-        <div className='grid grid-cols-4'>
-
+        <div className='grid grid-cols-4 px-5'>
             <div className='col-span-1'>
                 <h2 className='text-center font-semibold text-lg uppercase my-[21px]'>Sort and Filtering</h2>
                 <div>
@@ -87,7 +86,7 @@ const ProductsPage = () => {
                         onChange={(e) => setSearchTerm(e.target.value)}
                     />
                 </div>
-                <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 p-3'>
+                <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 '>
                     {
                         products?.map((item: TProduct) => <ProductCard key={item._id} product={item} />)
                     }

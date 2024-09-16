@@ -6,7 +6,7 @@ import Link from 'next/link';
 import React, { useEffect, useState } from 'react';
 
 const NavLinks = () => {
-    const { token, user } = useAppSelector((state) => state.auth);
+    const { token, user } = useAppSelector((state) => state.auth.auth);
     const [isMounted, setIsMounted] = useState(false);
     const dispatch = useAppDispatch()
 
@@ -28,7 +28,7 @@ const NavLinks = () => {
                 isMounted && thisUser?.role && <Link href={`/dashboard/${thisUser?.role}`}>Dashboard</Link>
             }
             {isMounted && token ? (
-                <p onClick={handleLogOut}>Log Out</p>
+                <p onClick={handleLogOut}>Logout</p>
             ) : (
                 <Link href='/login'>Login</Link>
             )}

@@ -1,30 +1,22 @@
 import { TProduct } from '@/types/TProduct';
-import Image from 'next/image';
 import React from 'react';
+import ProductCard from '../product/ProductCard';
 
-const FlashSell = ({ product }: { product: TProduct }) => {
+const FlashSell = async () => {
+    const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/services`)
+    const data = await res.json()
+    const productsData: TProduct[] = data?.data
     return (
-        <div className='mx-auto'>
+        <div className='mt-40'>
+            <div className='flex justify-between mx-20 mb-5'>
+                <h1>Flash sell</h1>
+                <button className='rounded-3xl p-1 w-40 text-white bg-black'>See All</button>
+            </div>
 
-            <div className="">
-
-                <div className='shadow-md'>
-
-                    <figure className=''>
-                        <Image
-                            className='rounded '
-                            width={300}
-                            height={100}
-                            src={product?.image}
-                            alt="mobile" />
-                    </figure>
-                    <div>
-                        <h3>{product?.name}</h3>
-                        <p>Price</p>
-
-                    </div>
-
-                </div>
+            <div className='grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 w-full gap-5'>
+                {
+                    productsData?.map((product: TProduct) => <ProductCard key={product._id} product={product} />)
+                }
             </div>
         </div>
     );

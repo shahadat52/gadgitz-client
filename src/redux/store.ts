@@ -1,15 +1,23 @@
-import { configureStore } from '@reduxjs/toolkit'
+import { combineReducers, configureStore } from '@reduxjs/toolkit'
 import authReducer from './features/auth/authSlice'
+import cartReducer from './features/cart/cartSlice'
 import serviceReducer from './features/service/serviceSlice'
 import bookingReducer from './features/booking/bookingSlice'
 import { baseApi } from './api/baseApi'
 import { persistStore, persistReducer, FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER } from 'redux-persist'
-import storage from 'redux-persist/lib/storage'
+import storage from 'redux-persist/lib/storage';
+
+const rootReducer = combineReducers({
+    auth: authReducer,
+    cart: cartReducer
+})
 const persistConfig = {
-    key: 'auth',
+    key: 'root',
     storage,
+    whiteList: ['auth', 'cart']
 }
-const persistedReducer = persistReducer(persistConfig, authReducer)
+
+const persistedReducer = persistReducer(persistConfig, rootReducer)
 
 export const store = configureStore({
     reducer: {
