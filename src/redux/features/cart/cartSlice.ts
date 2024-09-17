@@ -14,9 +14,11 @@ interface TProduct {
 };
 interface CartState {
     products: TProduct[];
+    address: string
 }
 const initialState: CartState = {
-    products: []
+    products: [],
+    address: ''
 }
 
 export const cartSlice = createSlice({
@@ -30,13 +32,16 @@ export const cartSlice = createSlice({
         },
         cartEmpty: (state) => {
             state.products = []
+        },
+        saveAddress: (state, action) => {
+            state.address = action.payload
         }
 
 
     },
 })
 
-export const { addToCart, cartEmpty } = cartSlice.actions
+export const { addToCart, cartEmpty, saveAddress } = cartSlice.actions
 
 
 export default cartSlice.reducer

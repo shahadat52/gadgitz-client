@@ -27,6 +27,7 @@ const NavLinks = () => {
             {
                 isMounted && thisUser?.role && <Link href={`/dashboard/${thisUser?.role}`}>Dashboard</Link>
             }
+
             {isMounted && token ? (
                 <p onClick={handleLogOut}>Logout</p>
             ) : (
