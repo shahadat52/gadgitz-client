@@ -26,7 +26,7 @@ const ShippingAddress = () => {
     }, [])
 
     return (
-        <div>
+        <div className='max-w-[50%]'>
             {
                 isClient && !address && (
                     <div className='bg-gray-200 rounded-xl p-3'>

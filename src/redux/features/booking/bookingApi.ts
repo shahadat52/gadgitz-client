@@ -7,7 +7,7 @@ const bookingApi = baseApi.injectEndpoints({
             query: (data) => {
 
                 return {
-                    url: '/bookings',
+                    url: '/orders',
                     method: 'POST',
                     body: data
                 }
