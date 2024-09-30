@@ -24,8 +24,13 @@ const NavLinksEnd = () => {
                 <Link href='/'>Home</Link>
                 <Link href='/products'>Products</Link>
                 {
-                    isMounted && thisUser?.role && <Link href={`/dashboard/${thisUser?.role}`}>Dashboard</Link>
+                    isMounted && thisUser?.role === 'admin' && <Link href={`/dashboard/${thisUser?.role}`}>Dashboard</Link>
                 }
+
+                {
+                    isMounted && thisUser?.role === 'user' && <Link href={`/my-orders`}>Orders</Link>
+                }
+
                 {isMounted && token ? (
                     <p onClick={handleLogOut}>Logout</p>
                 ) : (

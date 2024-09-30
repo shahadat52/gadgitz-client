@@ -3,7 +3,7 @@ import React from 'react';
 import ProductCard from '../product/ProductCard';
 
 const FlashSell = async () => {
-    const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/services`)
+    const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/products`)
     const data = await res.json()
     const productsData: TProduct[] = data?.data
     return (

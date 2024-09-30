@@ -3,7 +3,7 @@ import ProductCard from './ProductCard';
 import { TProduct } from '@/types/TProduct';
 
 const ProductCollections = async () => {
-    const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/services`)
+    const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/products`)
     const data = await res.json();
     const products = data?.data
 

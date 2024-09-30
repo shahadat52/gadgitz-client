@@ -12,12 +12,9 @@ const ShippingAddress = () => {
 
     const handleAddressSubmit = (data: FieldValues) => {
         const isConfirmed = window.confirm('Are you sure you want to submit the shipping address?');
-        console.log(isConfirmed);
         if (isConfirmed) {
             alert('Address submitted successfully!');
-            console.log(data);
         }
-        console.log(data);
         dispatch(saveAddress(data?.address))
     };
 

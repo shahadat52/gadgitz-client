@@ -1,11 +1,14 @@
+import AllProducts from '@/components/admin/AllProducts';
 import React from 'react';
 
-const AdminAllProduct = () => {
+const AdminAllProductsPage = () => {
     return (
-        <div>
-            <h1>all products</h1>
+        <div className=''>
+            <div>
+                <AllProducts />
+            </div>
         </div>
     );
 };
 
-export default AdminAllProduct;
+export default AdminAllProductsPage;

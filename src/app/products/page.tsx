@@ -22,7 +22,6 @@ const ProductsPage = () => {
     };
     const allData = primaryData?.data
     const products = data?.data
-    console.log(data);
     return (
         <div className='grid grid-cols-4 px-5'>
             <div className='col-span-1'>

@@ -18,16 +18,16 @@ const bookingApi = baseApi.injectEndpoints({
             query: () => {
 
                 return {
-                    url: '/bookings',
+                    url: '/orders',
                     method: 'GET',
                 }
             },
             providesTags: ['bookings']
         }),
-        getBookingsByCustomer: builder.query({
+        getOrdersByCustomer: builder.query({
             query: () => {
                 return {
-                    url: '/my-bookings',
+                    url: '/my-orders',
                     method: 'GET',
                 }
             }
@@ -47,4 +47,4 @@ const bookingApi = baseApi.injectEndpoints({
     })
 });
 
-export const { useGetAllBookingsQuery, useGetBookingsByCustomerQuery, useCreateBookingMutation, usePaymentIntendMutation } = bookingApi
+export const { useGetAllBookingsQuery, useGetOrdersByCustomerQuery, useCreateBookingMutation, usePaymentIntendMutation } = bookingApi

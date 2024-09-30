@@ -1,3 +1,4 @@
+
 import { baseApi } from "../../api/baseApi";
 
 const serviceApi = baseApi.injectEndpoints({
@@ -5,57 +6,56 @@ const serviceApi = baseApi.injectEndpoints({
         getAllServices: builder.query({
             query: (query) => {
                 const params = new URLSearchParams();
-                console.log(query);
                 if (query === 6) {
                     params.append('limit', '6')
                 }
                 return {
-                    url: `/services/?${params.toString()}`,
+                    url: `/products/?${params.toString()}`,
                     method: 'GET',
                 }
 
             },
-            providesTags: ["services"]
+            providesTags: ["products"]
         }),
         getServiceById: builder.query({
             query: (id) => {
                 return {
-                    url: `/services/${id}`,
+                    url: `/products/${id}`,
                     method: 'GET',
                 }
             }
         }),
-        addService: builder.mutation({
+        addProduct: builder.mutation({
             query: (data) => {
                 return {
-                    url: '/services',
+                    url: '/products',
                     method: 'POST',
                     body: data
                 }
             },
-            invalidatesTags: ['services']
+            invalidatesTags: ['products']
         }),
         deleteService: builder.mutation({
             query: (id) => {
                 return {
-                    url: `/services/${id}`,
+                    url: `/products/${id}`,
                     method: 'DELETE',
                 }
             },
-            invalidatesTags: ['services']
+            invalidatesTags: ['products']
         }),
         updateService: builder.mutation({
             query: (data) => {
                 return {
-                    url: `/services/${data?.id}`,
+                    url: `/products/${data?.id}`,
                     method: 'PUT',
                     body: data?.data
                 }
             },
-            invalidatesTags: ['services']
+            invalidatesTags: ['products']
         }),
     })
 
 });
 
-export const { useGetAllServicesQuery, useGetServiceByIdQuery, useAddServiceMutation, useDeleteServiceMutation, useUpdateServiceMutation } = serviceApi
+export const { useGetAllServicesQuery, useGetServiceByIdQuery, useAddProductMutation, useDeleteServiceMutation, useUpdateServiceMutation } = serviceApi

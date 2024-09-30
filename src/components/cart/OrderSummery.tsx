@@ -17,9 +17,7 @@ const OrderSummery = () => {
     const { products, address } = useAppSelector((state) => state.auth.cart)
     const dispatch = useAppDispatch()
     const user: TUser | any = useAppSelector((state) => state.auth.auth.user)
-    const [createBooking] = useCreateBookingMutation()
-    console.log(user);
-    console.log(products)
+    const [createBooking] = useCreateBookingMutation();
     const total = products?.reduce((acc, item) => acc + item.price, 0)
     const payableTotal = total + 120
     const handleCheckout = async () => {
@@ -44,11 +42,10 @@ const OrderSummery = () => {
             try {
                 const res = await createBooking(data)
                 if (res?.data?.success) {
-                    console.log(res.data);
                     setLoading(false)
                     dispatch(cartEmpty())
+                    toast.success(`${(res.data as any)?.message}`, { id: toastId, duration: 2000 })
                 } else if (res.error) {
-                    console.log(res.error);
                     setLoading(false)
                     toast.error(`${(res.error as any)?.data?.message}`, { id: toastId, duration: 2000 })
 

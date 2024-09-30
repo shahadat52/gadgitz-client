@@ -4,7 +4,7 @@ import React from 'react';
 import AddToCartButton from '../AddToCartButton';
 
 export const generateStaticParams = async () => {
-    const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/services`);
+    const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/products`);
     const resData = await res.json();
     const products = resData?.data
     return products.slice(0, 5)?.map((product: TProduct) => ({

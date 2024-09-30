@@ -1,6 +1,7 @@
 'use client'
 import { TUser } from '@/Interface/TUser';
 import { logOut } from '@/redux/features/auth/authSlice';
+import { cartEmpty } from '@/redux/features/cart/cartSlice';
 import { useAppDispatch, useAppSelector } from '@/redux/hooks';
 import Link from 'next/link';
 import React, { useEffect, useState } from 'react';
@@ -11,7 +12,8 @@ const NavLinks = () => {
     const dispatch = useAppDispatch()
 
     const handleLogOut = () => {
-        dispatch(logOut())
+        dispatch(logOut(), cartEmpty());
+        // dispatch(cartEmpty())
     }
     useEffect(() => {
         setIsMounted(true);
@@ -25,7 +27,10 @@ const NavLinks = () => {
             <Link href='/'>Home</Link>
             <Link href='/products'>Products</Link>
             {
-                isMounted && thisUser?.role && <Link href={`/dashboard/${thisUser?.role}`}>Dashboard</Link>
+                isMounted && thisUser?.role === 'admin' && <Link href={`/dashboard/${thisUser?.role}`}>Dashboard</Link>
+            }
+            {
+                isMounted && thisUser?.role === 'user' && <Link href={`/my-orders`}>Orders</Link>
             }
 
             {isMounted && token ? (

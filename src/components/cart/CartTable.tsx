@@ -6,7 +6,7 @@ import React, { useEffect, useState } from 'react';
 const CartTable = () => {
     const cartState = useAppSelector((state) => state.auth.cart)
     const [isClient, setIsClient] = useState(false)
-    const products = cartState?.products
+    const products = cartState?.products;
     useEffect(() => {
         setIsClient(true)
     }, [])
@@ -25,9 +25,9 @@ const CartTable = () => {
                 <tbody>
                     {isClient && products?.map((product: TProduct) => (
                         <tr key={product._id}>
-                            <td className="py-2 px-4 border-b  text-start font-bold">{product.name}</td>
-                            <td className="py-2 px-4 border-b text-start">{product.description.substring(0, 30)}</td>
-                            <td className="py-2 px-4 border-b text-start">{product.price}</td>
+                            <td className="py-2 px-4 border-b  text-start font-bold">{product?.name}</td>
+                            <td className="py-2 px-4 border-b text-start">{product?.description?.substring(0, 30)}</td>
+                            <td className="py-2 px-4 border-b text-start">{product?.price}</td>
                             <td className="py-2 px-4 border-b text-start">
                                 {product?.quantity}
                             </td>

@@ -8,6 +8,7 @@ const Dashboard
                     <DashBoardSidebar />
                 </div>
                 <div className="col-span-4">
+
                     {children}
                 </div>
             </div>
