@@ -7,7 +7,6 @@ import React from 'react';
 const MyOrdersPage = () => {
     const { data } = useGetOrdersByCustomerQuery(undefined)
     const products = data?.data?.map((product: any) => product.productInfo);
-    console.log(products);
     return (
         <div>
             <OurOrders products={products} />

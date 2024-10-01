@@ -1,6 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 
 import Banner from '@/components/home/Banner';
+import BestSelling from '@/components/home/BestSelling';
 import FlashSell from '@/components/home/FlashSell';
 import Header from '@/components/home/Header';
 import React from 'react';
@@ -23,6 +24,7 @@ const HomePage = async () => {
     <div>
       <Banner images={bannerImg} />
       <Header />
+      <BestSelling />
       <FlashSell />
     </div>
   );

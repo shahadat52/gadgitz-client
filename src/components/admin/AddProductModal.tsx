@@ -30,7 +30,6 @@ const AddProductModal: React.FC<AddProductModalProps> = ({ setProductModalContro
     const handleProductAdd = async (data: FieldValues) => {
         const toastId = toast.loading('Product adding', { duration: 2000 })
         const res = await addProduct(data)
-        console.log(res);
         if (res.error) {
             toast.error(`Operation failed`, { id: toastId, duration: 2000 })
             setProductModalController(false)

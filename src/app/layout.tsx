@@ -5,6 +5,7 @@ import Navbar from "@/components/shared/navbar/Navbar";
 import Providers from "@/lib/Providers";
 import Footer from "@/components/shared/Footer";
 import { Toaster } from "sonner";
+import Categories from "@/components/home/Categories";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -35,6 +36,7 @@ export default function RootLayout({
           className={`${geistSans.variable} ${geistMono.variable} antialiased  max-w-[1550px] mx-auto bg-gradient-to-r from-indigo-200  via-sky-200 to-indigo-200`}
         >
           <Navbar />
+          <Categories />
           <Toaster />
           {children}
           <hr className="mt-3" />

@@ -6,6 +6,11 @@
 .carouselImage{
   height: 400px  !important; 
 }
+.gradient-text {
+  background: linear-gradient(to right, 		#ff6600, 	#4c2202);
+  -webkit-background-clip: text;
+  color: transparent;
+}
 /* body {
   width: 1550px;
   margin-left: auto;
