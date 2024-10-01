@@ -5,8 +5,8 @@ const CarouselCard = ({ product }: { product: TProduct }) => {
     return (
         <div className="mx-auto ">
 
-            <div className='shadow-md rounded-t-3xl'>
-                <div className='rounded-t-xl'>
+            <div className='shadow-md max-w-[300px] rounded-t-3xl'>
+                <div className='rounded-t-3xl'>
                     <Image
                         className='rounded '
                         width={300}
@@ -15,8 +15,9 @@ const CarouselCard = ({ product }: { product: TProduct }) => {
                         alt="Shoes" />
                 </div>
                 <div className='px-5 py-5'>
-                    <h3 className='font-semibold '>{product?.name}</h3>
-                    <p>{product?.price}</p>
+                    <h3 className='font-semibold text-xl '>{product?.name}</h3>
+                    <p className='font-semibold'>Price: {product?.price}</p>
+                    <p className='text-justify'>{product?.description.slice(0, 60)}</p>
 
                 </div>
 

@@ -7,7 +7,7 @@ const AllOrders = async () => {
     const data = await res.json();
     const orders = data?.data;
     return (
-        <div className='p-4 border '>
+        <div className='p-4 border grid grid-cols-3 gap-5'>
             {
                 orders?.map((order: any) => <OrderTable key={order._id} order={order} />)
             }

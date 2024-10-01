@@ -11,8 +11,8 @@ const OrderTable = ({ order }: { order: any }) => {
     });
 
     return (
-        <div className='p-4 border border-black mb-2'>
-            <h1>customer: {order?.customer?.name}</h1>
+        <div className='p-4  mb-2 shadow-md'>
+            <h1 className='text-xl font-semibold uppercase'>Customer: {order?.customer?.name}</h1>
             {
                 productItems?.map((item: any, index: number) => <NameQuantity key={index} item={item} />)
             }

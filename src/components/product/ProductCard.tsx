@@ -18,10 +18,10 @@ const ProductCard
                         alt="Electronic" />
                 </figure>
                 <div className="card-body">
-                    <h2 className="card-title">Oppo!</h2>
-                    <p>If a dog chews shoes whose shoes does he choose?</p>
+                    <h2 className="card-title">{product?.name}</h2>
+                    <p>{product?.description}</p>
                     <div className="card-actions justify-end">
-                        <button className="btn btn-accent">Buy Now</button>
+                        <button className="btn bg-gradient-to-r from-indigo-400  via-sky-300 to-indigo-400">Buy Now</button>
                     </div>
                 </div>
             </Link>
