@@ -10,7 +10,6 @@ const MyOrdersPage = () => {
     console.log(products);
     return (
         <div>
-            <h1>{products?.map((product: any) => product.name)}</h1>
             <OurOrders products={products} />
         </div>
     );

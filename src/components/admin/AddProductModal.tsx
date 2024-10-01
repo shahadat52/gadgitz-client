@@ -23,17 +23,7 @@ type FormValues = {
 };
 const AddProductModal: React.FC<AddProductModalProps> = ({ setProductModalController }) => {
 
-    const { register, handleSubmit, formState: { errors } } = useForm<FormValues>({
-        defaultValues: {
-            name: 'ipad-7',
-            description: 'Now more relaiable',
-            price: 5,
-            image: 'https://i.ibb.co.com/PxH7L3T/Apple-i-Pad-10th-gen-blue.jpg',
-            category: 'tablet',
-            brand: 'apple',
-            features: 'Best for performance'
-        }
-    });
+    const { register, handleSubmit, formState: { errors } } = useForm<FormValues>();
 
     const [addProduct] = useAddProductMutation()
 
