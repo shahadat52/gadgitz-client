@@ -18,19 +18,20 @@ type FormValues = {
     image: string;
     category: string;
     brand: string;
+    quantity: number;
     features: string
 };
 const AddProductModal: React.FC<AddProductModalProps> = ({ setProductModalController }) => {
 
     const { register, handleSubmit, formState: { errors } } = useForm<FormValues>({
         defaultValues: {
-            name: 'Test product',
-            description: 'test descriptin',
+            name: 'ipad-7',
+            description: 'Now more relaiable',
             price: 5,
-            image: 'image test',
-            category: 'category test',
-            brand: 'brand test',
-            features: 'test features'
+            image: 'https://i.ibb.co.com/PxH7L3T/Apple-i-Pad-10th-gen-blue.jpg',
+            category: 'tablet',
+            brand: 'apple',
+            features: 'Best for performance'
         }
     });
 
@@ -38,8 +39,16 @@ const AddProductModal: React.FC<AddProductModalProps> = ({ setProductModalContro
 
     const handleProductAdd = async (data: FieldValues) => {
         const toastId = toast.loading('Product adding', { duration: 2000 })
-        await addProduct(data)
-        toast.success(`Product added successful`, { id: toastId, duration: 2000 })
+        const res = await addProduct(data)
+        console.log(res);
+        if (res.error) {
+            toast.error(`Operation failed`, { id: toastId, duration: 2000 })
+            setProductModalController(false)
+        } else {
+            toast.success(`Product added successful`, { id: toastId, duration: 2000 })
+            setProductModalController(false)
+        }
+
         setProductModalController(false)
 
     }
@@ -138,6 +147,18 @@ const AddProductModal: React.FC<AddProductModalProps> = ({ setProductModalContro
                             })}
                         />
                         {errors.features && <p className="text-red-500">{errors.features.message}</p>}
+                    </div>
+                    <div className="mb-4">
+                        <input
+                            className={`border p-2 w-full ${errors.price ? 'border-red-500' : ''}`}
+                            type="number"
+                            placeholder="Quantity"
+                            {...register('quantity', {
+                                required: "Quantity is required",
+                                min: { value: 1, message: "Quantity must be greater than 0" }
+                            })}
+                        />
+                        {errors.price && <p className="text-red-500">{errors.price.message}</p>}
                     </div>
 
                     <div className="flex justify-start">

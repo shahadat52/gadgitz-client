@@ -13,7 +13,7 @@ const ProductCard
                     <Image
                         className=""
                         src={product?.image}
-                        width={300}
+                        width={330}
                         height={0}
                         alt="Electronic" />
                 </figure>

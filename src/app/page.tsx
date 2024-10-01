@@ -6,7 +6,11 @@ import Header from '@/components/home/Header';
 import React from 'react';
 
 const HomePage = async () => {
-  const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/banners`, { cache: 'no-store' })
+  const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/banners`, {
+    next: {
+      revalidate: 5
+    }
+  })
   const data = await res.json();
   const banners = data?.data;
   const bannerImg = banners?.map((banner: any) => {

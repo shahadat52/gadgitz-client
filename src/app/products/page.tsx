@@ -1,6 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 'use client'
 import ProductCard from '@/components/product/ProductCard';
+import Spinner from '@/components/Spinner';
 import { useGetAllServicesQuery } from '@/redux/features/service/serviceApi';
 import { TProduct } from '@/types/TProduct';
 import { useState } from 'react';
@@ -10,7 +11,7 @@ const ProductsPage = () => {
     const [priceRange, setPriceRange] = useState([0, 0]);
     const [category, setCategory] = useState('');
     const [searchTerm, setSearchTerm] = useState('')
-    const { data } = useGetAllServicesQuery({ brand, priceRange, category, searchTerm })
+    const { data, isLoading } = useGetAllServicesQuery({ brand, priceRange, category, searchTerm })
     const { data: primaryData } = useGetAllServicesQuery('')
 
     const handleApplyFilters = () => {
@@ -85,11 +86,13 @@ const ProductsPage = () => {
                         onChange={(e) => setSearchTerm(e.target.value)}
                     />
                 </div>
-                <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 '>
-                    {
-                        products?.map((item: TProduct) => <ProductCard key={item._id} product={item} />)
-                    }
-                </div>
+                {
+                    isLoading ? <Spinner /> : <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 mx-auto '>
+                        {
+                            products?.map((item: TProduct) => <ProductCard key={item._id} product={item} />)
+                        }
+                    </div>
+                }
             </div>
         </div>
     );

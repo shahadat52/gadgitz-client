@@ -32,7 +32,7 @@ export default function RootLayout({
 
       <html lang="en">
         <body
-          className={`${geistSans.variable} ${geistMono.variable} antialiased  max-w-[1550px] mx-auto `}
+          className={`${geistSans.variable} ${geistMono.variable} antialiased  max-w-[1550px] mx-auto bg-gradient-to-r from-indigo-200  via-sky-200 to-indigo-200`}
         >
           <Navbar />
           <Toaster />

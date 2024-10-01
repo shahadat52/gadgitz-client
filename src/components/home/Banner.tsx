@@ -14,7 +14,7 @@ const Banner = ({ images }: { images: any }) => {
         }, 4000); // change image every 3 seconds
 
         return () => clearInterval(interval); // clear interval on unmount
-    }, []);
+    }, [images.length]);
     return (
         <div className="relative w-full h-[550px]">
             {images.map((image: any, index: number) => (
@@ -27,7 +27,7 @@ const Banner = ({ images }: { images: any }) => {
                         src={image.src}
 
                         alt='banner'
-                        layout="fill"
+                        fill
                         objectFit="cover"
                         priority={index === currentImageIndex} // prioritize the current image for faster loading
                     />

@@ -1,5 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 'use client'
+import OurOrders from '@/components/orders/MyOrders';
 import { useGetOrdersByCustomerQuery } from '@/redux/features/booking/bookingApi';
 import React from 'react';
 
@@ -10,6 +11,7 @@ const MyOrdersPage = () => {
     return (
         <div>
             <h1>{products?.map((product: any) => product.name)}</h1>
+            <OurOrders products={products} />
         </div>
     );
 };

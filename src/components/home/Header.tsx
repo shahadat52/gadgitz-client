@@ -9,7 +9,7 @@ const Header = async () => {
     const data = await res.json()
     const productsData: TProduct[] = data?.data;
     return (
-        <div className='bg-gray-100  py-5 w-full '>
+        <div className='bg-gradient-to-r from-indigo-100  via-sky-100 to-indigo-100 py-5 w-full '>
             <section className='text-center'>
                 <h1 className='text-center text-4xl font-bold pt-10'>Experience the Power of Modern Innovation! <br /> Get the Best Electronics, Only a Click Away!</h1>
                 <p className='my-10 text-gray-400'><i>Lorem ipsum dolor sit amet, consectetur adipisicing elit. <br /> Velit omnis cupiditate alias harum illo quia laudantium nemo laborum eos vitae..</i></p>

@@ -15,7 +15,7 @@ const FlashSell = async () => {
 
             <div className='grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 w-full gap-5'>
                 {
-                    productsData?.map((product: TProduct) => <ProductCard key={product._id} product={product} />)
+                    productsData?.slice(0, 8)?.map((product: TProduct) => <ProductCard key={product._id} product={product} />)
                 }
             </div>
         </div>
