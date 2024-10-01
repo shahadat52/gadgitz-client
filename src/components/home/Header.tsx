@@ -7,7 +7,7 @@ import CarouselCard from './CarouselCard';
 const Header = async () => {
     const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/products`)
     const data = await res.json()
-    const productsData: TProduct[] = data?.data
+    const productsData: TProduct[] = data?.data;
     return (
         <div className='bg-gray-100  py-5 w-full '>
             <section className='text-center'>

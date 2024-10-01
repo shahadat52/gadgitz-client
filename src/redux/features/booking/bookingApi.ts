@@ -12,7 +12,7 @@ const bookingApi = baseApi.injectEndpoints({
                     body: data
                 }
             },
-            invalidatesTags: ['bookings']
+            invalidatesTags: ['bookings', 'myOrders']
         }),
         getAllBookings: builder.query({
             query: () => {
@@ -30,7 +30,8 @@ const bookingApi = baseApi.injectEndpoints({
                     url: '/my-orders',
                     method: 'GET',
                 }
-            }
+            },
+            providesTags: ['myOrders']
         }),
         paymentIntend: builder.mutation({
             query: (payload) => {
